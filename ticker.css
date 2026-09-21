@@ -1,0 +1,13 @@
+/* =========================================================
+   TICKER (aliran data)
+   ========================================================= */
+.ticker { position: relative; overflow: hidden; padding: 1rem 0; background: var(--bg-2); border-block: 1px solid var(--line); }
+.ticker::before, .ticker::after { content: ""; position: absolute; top: 0; bottom: 0; width: 90px; z-index: 2; pointer-events: none; }
+.ticker::before { left: 0; background: linear-gradient(90deg, var(--bg-2), transparent); }
+.ticker::after { right: 0; background: linear-gradient(-90deg, var(--bg-2), transparent); }
+.ticker-track { display: flex; flex-wrap: wrap; }
+.ticker-track.run { flex-wrap: nowrap; width: max-content; animation: belt 30s linear infinite; }
+.ticker:hover .ticker-track { animation-play-state: paused; }
+.tick-list { display: flex; gap: 1.6rem; margin: 0; padding: 0 1.6rem 0 0; list-style: none; }
+.tick { display: flex; align-items: center; gap: 1.6rem; flex: none; font-family: var(--display); font-weight: 600; font-size: 1.25rem; }
+.tick::after { content: "//"; font-family: var(--mono); font-weight: 400; color: var(--magenta); }

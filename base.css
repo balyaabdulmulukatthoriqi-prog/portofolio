@@ -1,0 +1,60 @@
+/* =========================================================
+   TOKEN & DASAR
+   Latar biru-hitam, neon cyan + magenta, kuning listrik untuk aksi utama.
+   ========================================================= */
+:root {
+  --bg: #04060D;
+  --bg-2: #070B17;
+  --panel: #0A1122;
+  --panel-2: #0D172E;
+  --text: #E4EEFF;
+  --muted: #8EA2C4;
+  --line: #16294A;
+  --cyan: #19F3FF;
+  --magenta: #FF2A6D;
+  --yellow: #F5E610;
+  --violet: #7A5CFF;
+  --green: #3DFFA2;
+  --grid: rgba(25, 243, 255, .32);
+
+  --display: 'Oxanium', 'Chakra Petch', system-ui, sans-serif;
+  --mono: ui-monospace, 'Cascadia Mono', 'SF Mono', Consolas, 'Liberation Mono', monospace;
+  --bd: 1.7s; /* jeda animasi hero sampai boot selesai */
+
+  --bs-body-font-family: 'Chakra Petch', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  color-scheme: dark;
+}
+
+html {
+  background: var(--bg);
+  scroll-behavior: smooth;
+  scroll-padding-top: 84px;
+  scrollbar-color: var(--cyan) var(--bg);
+}
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--line); border: 2px solid var(--bg); }
+::-webkit-scrollbar-thumb:hover { background: var(--cyan); }
+
+body {
+  background: transparent;
+  color: var(--text);
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background:
+    radial-gradient(900px 520px at 88% -8%, rgba(122, 92, 255, .18), transparent 70%),
+    radial-gradient(760px 520px at -8% 42%, rgba(25, 243, 255, .07), transparent 70%),
+    radial-gradient(700px 500px at 100% 88%, rgba(255, 42, 109, .07), transparent 70%);
+}
+body::after {
+  content: ""; position: fixed; inset: 0; z-index: 1500; pointer-events: none;
+  background: repeating-linear-gradient(0deg, rgba(0, 0, 0, .13) 0 1px, transparent 1px 3px);
+}
+
+h1, h2, h3, h4 { font-family: var(--display); font-weight: 700; line-height: 1.08; letter-spacing: -.005em; }
+p { max-width: 62ch; }
+::selection { background: var(--cyan); color: #04060D; }
+:focus-visible { outline: 2px solid var(--yellow); outline-offset: 4px; }

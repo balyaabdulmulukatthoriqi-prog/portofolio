@@ -1,0 +1,74 @@
+/* =========================================================
+   BOOT + NAVBAR + PROGRESS
+   ========================================================= */
+#boot { display: none; }
+.js #boot {
+  position: fixed; inset: 0; z-index: 2000;
+  display: grid; place-items: center;
+  background: var(--bg);
+  animation: bootFail .01s 4.6s forwards; /* jaga-jaga kalau JS gagal */
+  transition: clip-path .7s cubic-bezier(.7, 0, .2, 1);
+  clip-path: inset(0 0 0 0);
+}
+#boot.done { clip-path: inset(0 0 100% 0); }
+.boot-box { width: min(440px, 86vw); font-family: var(--mono); font-size: .9rem; }
+.b-lines { min-height: 6.6em; margin: 0 0 1rem; color: var(--cyan); white-space: pre-line; }
+.b-bar { height: 6px; background: #0F1D3A; }
+.b-bar i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--cyan), var(--magenta)); box-shadow: 0 0 14px var(--cyan); }
+.b-meta { display: flex; justify-content: space-between; margin-top: .5rem; color: var(--muted); }
+
+#prog {
+  position: fixed; top: 0; left: 0; height: 3px; width: 0; z-index: 1051;
+  background: linear-gradient(90deg, var(--cyan), var(--magenta));
+  box-shadow: 0 0 12px var(--cyan), 0 0 24px rgba(25, 243, 255, .5);
+}
+.scroll-read {
+  position: fixed; right: 1rem; top: 50%; z-index: 1040;
+  transform: translateY(-50%) rotate(180deg); writing-mode: vertical-rl;
+  font-family: var(--mono); font-size: .72rem; letter-spacing: .12em; color: var(--muted);
+}
+.scroll-read b { color: var(--cyan); font-weight: 500; }
+
+.site-nav {
+  --bs-navbar-color: var(--muted);
+  --bs-navbar-hover-color: var(--cyan);
+  --bs-navbar-active-color: var(--cyan);
+  --bs-navbar-brand-color: var(--text);
+  --bs-navbar-brand-hover-color: var(--text);
+  top: 3px; padding: .8rem 0;
+  background: linear-gradient(to bottom, rgba(4, 6, 13, .92), rgba(4, 6, 13, 0));
+  transition: background-color .3s ease, padding .3s ease;
+}
+.site-nav.scrolled {
+  padding: .5rem 0;
+  background: rgba(4, 6, 13, .84);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  box-shadow: 0 1px 0 var(--line);
+}
+.brand { display: flex; align-items: center; gap: .75rem; font-family: var(--display); font-weight: 700; font-size: 1.3rem; }
+.brand-mark {
+  display: grid; place-items: center; width: 40px; height: 44px;
+  background: linear-gradient(160deg, var(--cyan), var(--violet));
+  color: #04060D; font-weight: 800; font-size: 1.05rem;
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  transition: filter .2s ease;
+}
+.brand:hover .brand-mark { animation: flicker .5s steps(2) 1; filter: drop-shadow(0 0 8px var(--cyan)); }
+
+.site-nav .nav-link {
+  position: relative; padding: .5rem 1rem;
+  font-family: var(--display); font-weight: 600; font-size: 1.05rem;
+}
+.site-nav .nav-link::after {
+  content: ""; position: absolute; left: 1rem; right: 1rem; bottom: .1rem; height: 2px;
+  background: var(--cyan); box-shadow: 0 0 10px var(--cyan);
+  transform: scaleX(0); transform-origin: left; transition: transform .3s ease;
+}
+.site-nav .nav-link:hover::after, .site-nav .nav-link.active::after { transform: scaleX(1); }
+
+.sys { display: flex; align-items: center; gap: .9rem; margin-left: 1rem; font-family: var(--mono); font-size: .76rem; color: var(--muted); }
+.live { display: inline-flex; align-items: center; gap: .45rem; color: var(--green); }
+.live i { width: 7px; height: 7px; border-radius: 50%; background: currentColor; box-shadow: 0 0 8px currentColor; animation: pulse 1.6s ease-in-out infinite; }
+
+.navbar-toggler { border: 1px solid var(--cyan); border-radius: 0; }
+.navbar-collapse.show, .navbar-collapse.collapsing { background: var(--panel); border: 1px solid var(--line); margin-top: .7rem; padding: .8rem 1rem; }

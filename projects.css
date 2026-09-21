@@ -1,0 +1,108 @@
+/* =========================================================
+   PROYEK
+   ========================================================= */
+.project {
+  --c: 20px;
+  display: flex; flex-direction: column; height: 100%;
+  position: relative; 
+  transform: perspective(1000px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transition: transform .25s ease-out;
+}
+.project::after {
+  content: ""; position: absolute; inset: 0; z-index: 3; pointer-events: none; opacity: 0;
+  background: radial-gradient(circle at var(--gx, 50%) var(--gy, 50%), rgba(25, 243, 255, .14), transparent 45%);
+  transition: opacity .25s ease;
+}
+.project:hover::after { opacity: 1; }
+.project-path { padding: .6rem 1.2rem; border-bottom: 1px solid var(--line); font-family: var(--mono); font-size: .76rem; color: var(--muted); }
+.project-path b { color: var(--cyan); font-weight: 400; }
+.project-inner { display: flex; flex-direction: column; flex: 1; }
+
+.project-visual {
+  position: relative; overflow: hidden; display: grid; place-items: center; padding: 1.6rem;
+  background:
+    linear-gradient(rgba(25, 243, 255, .09) 1px, transparent 1px) 0 0 / 100% 24px,
+    linear-gradient(90deg, rgba(25, 243, 255, .09) 1px, transparent 1px) 0 0 / 24px 100%,
+    radial-gradient(circle at 50% 40%, rgba(122, 92, 255, .3), transparent 70%),
+    #070C1C;
+}
+.project-visual.crop { height: 210px; padding: 1.6rem 1.6rem 0; align-items: end; }
+.project-visual.pink { background:
+    linear-gradient(rgba(255, 42, 109, .1) 1px, transparent 1px) 0 0 / 100% 24px,
+    linear-gradient(90deg, rgba(255, 42, 109, .1) 1px, transparent 1px) 0 0 / 24px 100%,
+    radial-gradient(circle at 50% 40%, rgba(255, 42, 109, .28), transparent 70%),
+    #0C0714; }
+
+.project-body { display: flex; flex-direction: column; justify-content: center; padding: 1.6rem; flex: 1; }
+.project-body h3 { margin: .8rem 0 .7rem; font-size: 1.85rem; }
+.project-body p { color: var(--muted); }
+.feature-list { display: grid; gap: .45rem; margin: 0 0 1.3rem; padding: 0; list-style: none; }
+.feature-list li { position: relative; padding-left: 1.5rem; }
+.feature-list li::before { content: ""; position: absolute; left: 0; top: .55em; width: 9px; height: 9px; background: var(--cyan); clip-path: polygon(0 0, 70% 0, 100% 30%, 100% 100%, 30% 100%, 0 70%); box-shadow: 0 0 8px var(--cyan); }
+.chip { display: inline-flex; align-items: center; gap: .55rem; font-family: var(--mono); font-size: .78rem; color: var(--green); }
+.chip.plain { color: var(--muted); }
+.chip .dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; box-shadow: 0 0 8px currentColor; animation: pulse 1.6s ease-in-out infinite; }
+
+@media (min-width: 768px) {
+  .project-lg .project-inner { flex-direction: row; }
+  .project-lg .project-visual { flex: 0 0 40%; }
+  .project-strip .project-body { flex-direction: row; align-items: center; justify-content: space-between; gap: 2rem; }
+}
+
+/* Mockup ponsel neon */
+.phone {
+  position: relative; z-index: 1; flex: none; width: 132px; height: 236px; padding: 8px;
+  background: #04060D; border-radius: 14px;
+  box-shadow: 0 0 0 2px var(--cyan), 0 0 30px rgba(25, 243, 255, .4);
+  animation: bob 5s ease-in-out infinite;
+}
+.phone.pink { box-shadow: 0 0 0 2px var(--magenta), 0 0 30px rgba(255, 42, 109, .4); }
+.phone::before { content: ""; position: absolute; z-index: 2; top: 8px; left: 50%; width: 38px; height: 6px; margin-left: -19px; background: #04060D; border-radius: 0 0 6px 6px; }
+.phone-screen { display: flex; flex-direction: column; gap: 8px; height: 100%; padding: 22px 9px 9px; background: #0A1122; border-radius: 8px; overflow: hidden; }
+.shop-bar { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.shop-search { flex: 1; height: 14px; background: #16294A; }
+.cart { position: relative; width: 20px; height: 20px; background: var(--cyan); }
+.cart b { position: absolute; top: -5px; right: -6px; width: 12px; height: 12px; border-radius: 50%; background: var(--magenta); border: 2px solid #0A1122; animation: pop 2.7s ease-in-out infinite; }
+.shop-grid { flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.shop-grid i { position: relative; animation: press 3.6s ease-in-out infinite; }
+.shop-grid i::after { content: ""; position: absolute; left: 6px; bottom: 6px; width: 46%; height: 6px; background: rgba(4, 6, 13, .6); }
+.shop-grid i:nth-child(1) { background: linear-gradient(135deg, var(--cyan), #0B7C87); animation-delay: 0s; }
+.shop-grid i:nth-child(2) { background: linear-gradient(135deg, var(--magenta), #8A1240); animation-delay: .9s; }
+.shop-grid i:nth-child(3) { background: linear-gradient(135deg, var(--violet), #3B2A85); animation-delay: 1.8s; }
+.shop-grid i:nth-child(4) { background: linear-gradient(135deg, var(--yellow), #8A8000); animation-delay: 2.7s; }
+
+.task-head span { display: block; width: 46px; height: 12px; background: var(--magenta); }
+.task-row { display: flex; align-items: center; gap: 8px; }
+.task-row .box { position: relative; flex: none; width: 16px; height: 16px; border: 2px solid var(--magenta); }
+.task-row .box::after { content: ""; position: absolute; left: 3px; top: -2px; width: 5px; height: 9px; border: solid var(--green); border-width: 0 3px 3px 0; transform: rotate(45deg) scale(0); animation: tick 8s ease-in-out infinite; }
+.task-row i { display: block; height: 9px; background: #4A5F8F; animation: done 8s ease-in-out infinite; }
+.task-row:nth-of-type(2) .box::after, .task-row:nth-of-type(2) i { animation-delay: 0s; }
+.task-row:nth-of-type(3) .box::after, .task-row:nth-of-type(3) i { animation-delay: 1.3s; }
+.task-row:nth-of-type(4) .box::after, .task-row:nth-of-type(4) i { animation-delay: 2.6s; }
+.task-row:nth-of-type(5) .box::after, .task-row:nth-of-type(5) i { animation-delay: 3.9s; }
+
+.task-row:nth-of-type(5) .box::after, .task-row:nth-of-type(5) i { animation-delay: 3.9s; }
+
+/* Mockup ponsel absensi QRIS */
+.phone.violet { box-shadow: 0 0 0 2px var(--violet), 0 0 30px rgba(122, 92, 255, .45); }
+.qr-head span { display: block; width: 46px; height: 12px; background: var(--violet); }
+.qr-box { position: relative; flex: 1; display: grid; place-items: center; overflow: hidden; }
+.qr {
+  position: relative; width: 84px; height: 84px;
+  border: 5px solid #E4EEFF;
+  background:
+    repeating-conic-gradient(#04060D 0 25%, transparent 0 50%) 0 0 / 12px 12px,
+    repeating-conic-gradient(#04060D 0 25%, transparent 0 50%) 5px 3px / 8px 8px,
+    #E4EEFF;
+  box-shadow: 0 0 0 3px #0A1122, 0 0 0 5px var(--green);
+}
+.qr i { position: absolute; width: 26px; height: 26px; background: #E4EEFF; border: 4px solid #04060D; }
+.qr i::after { content: ""; position: absolute; inset: 4px; background: #04060D; }
+.qr i:nth-child(1) { top: 0; left: 0; }
+.qr i:nth-child(2) { top: 0; right: 0; }
+.qr i:nth-child(3) { bottom: 0; left: 0; }
+.qr-scan { position: absolute; left: 3px; right: 3px; top: 8%; height: 2px; background: var(--green); box-shadow: 0 0 10px var(--green); animation: qrScan 3s ease-in-out infinite; }
+.qr-status { display: flex; align-items: center; gap: 6px; }
+.qr-status b { position: relative; flex: none; width: 18px; height: 18px; border-radius: 50%; background: var(--green); }
+.qr-status b::after { content: ""; position: absolute; left: 6px; top: 2px; width: 4px; height: 9px; border: solid #04060D; border-width: 0 2px 2px 0; transform: rotate(45deg) scale(0); animation: qrOk 3s ease-in-out infinite; }
+.qr-status span { flex: 1; height: 8px; background: #16294A; }

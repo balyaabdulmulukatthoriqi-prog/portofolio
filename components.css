@@ -1,0 +1,86 @@
+/* =========================================================
+   KOMPONEN DASAR
+   ========================================================= */
+
+/* Panel dengan sudut terpotong + garis tepi neon */
+.cut {
+  --c: 16px;
+  position: relative;
+  background: linear-gradient(120deg, var(--cyan), rgba(25, 243, 255, .16) 32%, rgba(255, 42, 109, .22) 68%, var(--magenta));
+  background-size: 240% 240%;
+  clip-path: polygon(0 0, calc(100% - var(--c)) 0, 100% var(--c), 100% 100%, var(--c) 100%, 0 calc(100% - var(--c)));
+}
+.cut::before {
+  content: ""; position: absolute; inset: 1px; z-index: 0;
+  background: var(--panel);
+  clip-path: polygon(0 0, calc(100% - var(--c) + .6px) 0, 100% calc(var(--c) - .6px), 100% 100%, calc(var(--c) - .6px) 100%, 0 calc(100% - var(--c) + .6px));
+}
+.cut > * { position: relative; z-index: 1; }
+.cut:hover, .cut.flow { animation: borderFlow 5s ease-in-out infinite alternate; }
+
+.btn {
+  --c: 12px;
+  position: relative; overflow: hidden;
+  border: 0; border-radius: 0;
+  padding: .85rem 1.7rem;
+  font-family: var(--display); font-weight: 700; font-size: 1.02rem; letter-spacing: .02em;
+  clip-path: polygon(0 0, calc(100% - var(--c)) 0, 100% var(--c), 100% 100%, var(--c) 100%, 0 calc(100% - var(--c)));
+  transition: transform .18s ease, filter .18s ease, color .2s ease;
+}
+.btn::after {
+  content: ""; position: absolute; top: 0; bottom: 0; left: -70%; width: 45%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .5), transparent);
+  transform: skewX(-24deg);
+}
+.btn:hover::after { animation: sheen .7s ease; }
+
+.btn-cyber {
+  --bs-btn-bg: var(--yellow); --bs-btn-color: #04060D; --bs-btn-border-color: transparent;
+  --bs-btn-hover-bg: var(--yellow); --bs-btn-hover-color: #04060D; --bs-btn-hover-border-color: transparent;
+  --bs-btn-active-bg: var(--yellow); --bs-btn-active-color: #04060D; --bs-btn-active-border-color: transparent;
+  background: var(--yellow); color: #04060D;
+}
+.btn-cyber:focus-visible { box-shadow: inset 0 0 0 3px #04060D, inset 0 0 0 5px var(--cyan); }
+.btn-cyber:hover, .btn-cyber:focus { background: var(--yellow); color: #04060D; transform: translateY(-2px); filter: brightness(1.08); }
+.btn-cyber:active { transform: translateY(1px); }
+
+.btn-line {
+  --bs-btn-bg: var(--cyan); --bs-btn-color: var(--cyan); --bs-btn-border-color: transparent;
+  --bs-btn-hover-bg: var(--cyan); --bs-btn-hover-color: #04060D; --bs-btn-hover-border-color: transparent;
+  --bs-btn-active-bg: var(--cyan); --bs-btn-active-color: #04060D; --bs-btn-active-border-color: transparent;
+  background: var(--cyan); color: var(--cyan);
+}
+.btn-line:focus-visible::before { box-shadow: inset 0 0 0 2px var(--yellow); }
+.btn-line > span { position: relative; z-index: 1; }
+.btn-line::before {
+  content: ""; position: absolute; inset: 1px; background: var(--bg);
+  clip-path: polygon(0 0, calc(100% - var(--c) + .6px) 0, 100% calc(var(--c) - .6px), 100% 100%, calc(var(--c) - .6px) 100%, 0 calc(100% - var(--c) + .6px));
+  transition: background-color .2s ease;
+}
+.btn-line:hover, .btn-line:focus { color: #04060D; transform: translateY(-2px); }
+.btn-line:hover::before { background: var(--cyan); }
+.btn-line:active { transform: translateY(1px); }
+
+.tag {
+  display: inline-block; padding: .05rem .6rem;
+  border: 1px solid rgba(25, 243, 255, .4); background: rgba(25, 243, 255, .06);
+  color: var(--cyan);
+  font-family: var(--mono); font-size: .76rem; line-height: 1.7;
+}
+
+.section { padding: 6.5rem 0; }
+
+.section-title {
+  position: relative;
+  margin: 0 0 2rem; padding-bottom: 1.1rem;
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  text-shadow: 0 0 28px rgba(25, 243, 255, .3);
+}
+.section-title::after {
+  content: ""; position: absolute; left: 0; bottom: 0;
+  width: 150px; height: 3px;
+  background: linear-gradient(90deg, var(--cyan) 0 70%, var(--magenta) 70% 100%);
+  box-shadow: 0 0 12px var(--cyan);
+  transition: width .8s cubic-bezier(.2, .8, .2, 1) .3s;
+}
+.js .section-title:not(.in)::after { width: 0; }

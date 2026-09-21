@@ -1,0 +1,43 @@
+/* =========================================================
+   KONTAK + FOOTER
+   ========================================================= */
+.contact { position: relative; padding: 7rem 0 6rem; background: linear-gradient(to bottom, transparent, var(--bg-2)); }
+.contact::before {
+  content: ""; position: absolute; left: 0; right: 0; top: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--cyan), var(--magenta), transparent);
+  box-shadow: 0 0 18px var(--cyan);
+}
+.contact-title { margin: 0 0 1.4rem; font-size: clamp(2.3rem, 5vw, 4rem); font-weight: 800; text-shadow: 0 0 30px rgba(255, 42, 109, .3); }
+.contact p { font-size: 1.14rem; color: var(--muted); }
+.contact .term { max-width: none; margin: 0; }
+.cmd {
+  display: flex; align-items: center; gap: .3rem; width: 100%;
+  margin: .1rem 0; padding: .55rem .7rem;
+  border: 0; border-left: 2px solid transparent; background: transparent;
+  color: var(--text); text-align: left; text-decoration: none;
+  font: inherit; transition: background-color .15s ease, border-color .15s ease, color .15s ease, padding-left .15s ease;
+}
+.cmd em { margin-left: auto; padding-left: 1rem; font-style: normal; font-size: .82rem; color: var(--muted); }
+.cmd:hover, .cmd:focus-visible { background: rgba(25, 243, 255, .08); border-left-color: var(--cyan); color: var(--cyan); padding-left: 1rem; }
+.cmd:hover .prompt, .cmd:focus-visible .prompt { color: var(--magenta); }
+
+.site-footer { padding: 1.3rem 0; background: var(--bg-2); border-top: 1px solid var(--line); font-family: var(--mono); font-size: .78rem; color: var(--muted); }
+.site-footer p { margin: 0; max-width: none; }
+
+.to-top {
+  --c: 10px;
+  position: fixed; right: 1.4rem; bottom: 1.4rem; z-index: 1040; width: 48px; height: 48px; border: 0;
+  background: var(--cyan); color: #04060D; font-family: var(--display); font-size: 1.4rem; font-weight: 800; line-height: 1;
+  clip-path: polygon(0 0, calc(100% - var(--c)) 0, 100% var(--c), 100% 100%, var(--c) 100%, 0 calc(100% - var(--c)));
+  opacity: 0; transform: translateY(24px); pointer-events: none;
+  transition: opacity .3s ease, transform .3s ease, background-color .2s ease;
+}
+.to-top.show { opacity: 1; transform: none; pointer-events: auto; }
+.to-top:hover, .to-top:focus-visible { background: var(--yellow); }
+
+.toast.cyber {
+  --bs-toast-bg: var(--panel); --bs-toast-color: var(--text);
+  --bs-toast-border-width: 1px; --bs-toast-border-color: var(--cyan); --bs-toast-border-radius: 0;
+  font-family: var(--mono); font-size: .85rem;
+  box-shadow: 0 0 22px rgba(25, 243, 255, .25);
+}

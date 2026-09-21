@@ -1,0 +1,15 @@
+/* =========================================================
+   SKILL (modul terpasang)
+   ========================================================= */
+.bin { --c: 16px; height: 100%; }
+.bin-head { display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.2rem .3rem; }
+.bin-head h3 { margin: 0; font-size: 1.45rem; }
+.bin-head span { font-family: var(--mono); font-size: .7rem; color: var(--green); }
+.bin ul { margin: 0; padding: .6rem 1.2rem 1.3rem; list-style: none; display: grid; gap: 1rem; }
+.bin li { display: flex; flex-direction: column; gap: .4rem; font-weight: 600; }
+
+.segs { display: flex; gap: 5px; }
+.segs i { display: block; flex: 1; max-width: 38px; height: 10px; background: #0F1D3A; transform: skewX(-22deg); }
+.segs i.on { background: var(--cyan); box-shadow: 0 0 8px rgba(25, 243, 255, .7); }
+.js .bin:not(.in) .segs i.on { background: #0F1D3A; box-shadow: none; }
+.js .bin.in .segs i.on { animation: segOn .4s ease both; animation-delay: calc(var(--i) * .13s + var(--d, 0s) + .3s); }

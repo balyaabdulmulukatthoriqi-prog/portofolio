@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="id" data-bs-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Balya Abdul Mluk Atthoriqi | Portofolio</title>
+  <meta name="description" content="Portofolio Nama Kamu: operator gudang dan mahasiswa Sistem Informasi yang membuat aplikasi mobile dengan Flutter dan Firebase.">
+  <meta name="theme-color" content="#04060D">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpolygon points='50,4 92,27 92,73 50,96 8,73 8,27' fill='%2304060D' stroke='%2319F3FF' stroke-width='8'/%3E%3C/svg%3E">
+
+  <!-- Penanda JS aktif: supaya animasi tidak menyembunyikan konten kalau JS gagal dimuat -->
+  <script>document.documentElement.classList.add('js');</script>
+
+  <!-- Font: Oxanium (judul angular ala antarmuka futuristik) + Chakra Petch (isi) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Oxanium:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- CSS kita sendiri, dimuat urut dari atas ke bawah (urutan penting) -->
+  <link href="base.css" rel="stylesheet">
+  <link href="components.css" rel="stylesheet">
+  <link href="navbar.css" rel="stylesheet">
+  <link href="hero.css" rel="stylesheet">
+  <link href="ticker.css" rel="stylesheet">
+  <link href="about.css" rel="stylesheet">
+  <link href="skills.css" rel="stylesheet">
+  <link href="projects.css" rel="stylesheet">
+  <link href="contact.css" rel="stylesheet">
+  <link href="animations.css" rel="stylesheet">
+  <link href="responsive.css" rel="stylesheet">
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#navMenu" data-bs-root-margin="-30% 0px -60% 0px" tabindex="0">
+
+  <!-- Layar boot -->
+  <div id="boot" aria-hidden="true">
+    <div class="boot-box">
+      <p class="b-lines" id="bootLines"></p>
+      <div class="b-bar"><i id="bootFill"></i></div>
+      <div class="b-meta"><span>menginisialisasi</span><span id="bootPct">0%</span></div>
+    </div>
+  </div>
+
+  <div id="prog" aria-hidden="true"></div>
+  <div class="scroll-read" aria-hidden="true">scroll <b id="scrollPct">0%</b></div>
+
+  <!-- ================= NAVBAR ================= -->
+  <nav class="navbar navbar-expand-lg fixed-top site-nav" id="nav" aria-label="Navigasi utama">
+    <div class="container">
+      <a class="navbar-brand brand" href="#top">
+        <span class="brand-mark" aria-hidden="true">NK</span>
+        <span>Balya Abdul Muluk Atthoriqi</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+              aria-controls="navMenu" aria-expanded="false" aria-label="Buka menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+          <li class="nav-item"><a class="nav-link" href="#tentang">Tentang</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skill">Skill</a></li>
+          <li class="nav-item"><a class="nav-link" href="#proyek">Proyek</a></li>
+          <li class="nav-item"><a class="nav-link" href="#kontak">Kontak</a></li>
+        </ul>
+        <div class="sys" aria-hidden="true">
+          <span class="live"><i></i>sistem aktif</span>
+          <span id="clock">--:--:--</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- ================= HERO ================= -->
+    <header class="hero" id="top">
+      <canvas id="rain" aria-hidden="true"></canvas>
+      <div class="floor" aria-hidden="true"><div class="floor-grid"></div></div>
+      <span class="br br-tl" aria-hidden="true"></span><span class="br br-tr" aria-hidden="true"></span>
+      <span class="br br-bl" aria-hidden="true"></span><span class="br br-br" aria-hidden="true"></span>
+
+      <div class="container">
+        <div class="row align-items-center gy-5">
+          <div class="col-lg-7">
+            <!-- GANTI "Nama Kamu" dengan nama aslimu -->
+            <p class="hero-hello">Halo, saya Balya Abdul Muluk Atthoriqi.</p>
+            <h1 class="hero-title">
+              <span class="glitch" style="--i:0" data-text="Dari gudang">Mahasiswa Sistem Informasi &</span>
+              <span class="glitch" style="--i:1" data-text="menuju kode.">Flutter Developer</span>
+            </h1>
+
+            <div class="term cut">
+              <div class="term-bar"><i></i><i></i><i></i><span>balyaabdulmulukatthoriqi@gmail.com</span></div>
+              <div class="term-body">
+                <p><span class="prompt">$</span>whoami</p>
+                <p class="out hl">Mahasiswa Sistem Informasi yang sedang mempelajari Flutter, Git, REST API, dan Python untuk berkarier sebagai Mobile Developer.</p>
+                <p><span class="prompt">$</span>status --sekarang</p>
+                <p class="out" id="typedOut"><span>sedang </span><span class="typed" id="typed">membuat aplikasi mobile.</span><span class="caret" aria-hidden="true"></span></p>
+              </div>
+            </div>
+
+            <div class="d-flex flex-wrap gap-3">
+              <a class="btn btn-cyber btn-lg" href="#proyek">Lihat proyek</a>
+              <a class="btn btn-line btn-lg" href="#kontak"><span>Hubungi saya</span></a>
+            </div>
+          </div>
+
+          <div class="col-lg-5">
+            <div class="id-stage" data-speed="-0.05">
+              <div class="id-card cut" data-tilt="9">
+                <div class="id-scan"></div>
+                <div class="id-head"><span>Profil ID</span><span class="live"><i></i>online</span></div>
+
+                <div class="hud-wrap" role="img" aria-label="Lambang hexagon berinisial NK dikelilingi cincin HUD yang berputar">
+                  <svg class="hud" viewBox="0 0 200 200" aria-hidden="true">
+                    <line class="cross" x1="100" y1="0" x2="100" y2="14"/><line class="cross" x1="100" y1="186" x2="100" y2="200"/>
+                    <line class="cross" x1="0" y1="100" x2="14" y2="100"/><line class="cross" x1="186" y1="100" x2="200" y2="100"/>
+                    <circle class="r1" cx="100" cy="100" r="92"/>
+                    <circle class="r2" cx="100" cy="100" r="80"/>
+                    <circle class="r3" cx="100" cy="100" r="68"/>
+                    <circle class="r4" cx="100" cy="100" r="58"/>
+                    <g class="orbit"><circle cx="100" cy="8" r="3.5" fill="#F5E610" style="fill:#F5E610"/></g>
+                  </svg>
+                  <div class="hex">NK</div>
+                  <span class="readout a" id="roA">lat 12ms</span>
+                  <span class="readout b" id="roB">mem 64%</span>
+                </div>
+
+                <dl class="id-fields">
+                  <div><dt>nama</dt><dd>Balya Abdul Muluk Atthoriqi</dd></div>
+                  <div><dt>peran</dt><dd>Mahasiswa Sistem Informasi</dd></div>
+                  <div><dt>stack</dt><dd>Flutter // PHP // MySQL</dd></div>
+                  <div><dt>misi</dt><dd>Menjadi Mobile Developer Profesional</dd></div>
+                </dl>
+
+                <div class="meter-row"><span>pengalaman kerja</span><span>3 th 6 bln</span></div>
+                <div class="meter"><i style="--w:100%"></i></div>
+                <div class="meter-row"><span>jalur IT</span><span>sedang naik</span></div>
+                <div class="meter"><i class="alt" style="--w:62%"></i></div>
+                <p class="id-code">ID-NK-0001 // aktif</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ================= TICKER ================= -->
+    <section class="ticker" aria-label="Teknologi yang saya pakai">
+      <div class="ticker-track">
+        <ul class="tick-list">
+          <li class="tick">Flutter</li>
+          <li class="tick">Dart</li>
+          <li class="tick">Firebase</li>
+          <li class="tick">HTML</li>
+          <li class="tick">CSS</li>
+          <li class="tick">Bootstrap</li>
+          <li class="tick">Mobile programming</li>
+          <li class="tick">Sistem Informasi</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ================= TENTANG ================= -->
+    <section class="section" id="tentang">
+      <div class="container">
+        <div class="row gy-5">
+          <div class="col-lg-5">
+            <h2 class="section-title reveal scramble">Tentang saya</h2>
+          </div>
+          <div class="col-lg-7">
+            <!-- Ubah paragraf ini dengan ceritamu sendiri -->
+            <div class="quest cut reveal">
+              <p>
+              Saya mahasiswa S1 Sistem Informasi yang tertarik pada pengembangan aplikasi mobile. Saya terbiasa bekerja dengan teliti dan disiplin, serta cepat belajar hal baru.
+              </p>
+              <p>
+                Di kampus, saya membuat aplikasi task manager dan sedang mengembangkan aplikasi e-commerce dengan Flutter dan Firebase. Saya mencari kesempatan pertama di bidang IT: magang, part-time atau freelance, maupun full-time entry level.
+              </p>
+            </div>
+
+            <!-- Cincin gauge hanya hiasan visual, bukan ukuran resmi -->
+            <div class="row g-4 mt-2">
+              <div class="col-sm-4 reveal" style="--d:.1s">
+                <div class="stat cut">
+                  <div class="gauge g-cyan">
+                    <svg viewBox="0 0 120 120" aria-hidden="true"><circle class="g-track" cx="60" cy="60" r="52"/><circle class="g-fill" cx="60" cy="60" r="52" pathLength="100" style="--o:30"/></svg>
+                    <div class="g-center"><b data-count="3" data-dec="0">3</b><small>Teknologi</small></div>
+                  </div>
+                  <p>Flutter, Dart, dan Firebase</p>
+                </div>
+              </div>
+              <div class="col-sm-4 reveal" style="--d:.22s">
+                <div class="stat cut">
+                  <div class="gauge g-magenta">
+                    <svg viewBox="0 0 120 120" aria-hidden="true"><circle class="g-track" cx="60" cy="60" r="52"/><circle class="g-fill" cx="60" cy="60" r="52" pathLength="100" style="--o:55"/></svg>
+                    <div class="g-center"><b data-count="2" data-dec="0">2</b><small>aplikasi</small></div>
+                  </div>
+                  <p>mobile yang sudah saya buat</p>
+                </div>
+              </div>
+              <div class="col-sm-4 reveal" style="--d:.34s">
+                <div class="stat cut">
+                  <div class="gauge g-yellow">
+                    <svg viewBox="0 0 120 120" aria-hidden="true"><circle class="g-track" cx="60" cy="60" r="52"/><circle class="g-fill" cx="60" cy="60" r="52" pathLength="100" style="--o:40"/></svg>
+                    <div class="g-center"><b>S1</b><small>berjalan</small></div>
+                  </div>
+                  <p>Sistem Informasi</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SKILL ================= -->
+    <section class="section pt-0" id="skill">
+      <div class="container">
+        <h2 class="section-title reveal scramble">Modul skill</h2>
+        <!-- Atur level (data-lv 1 sampai 5) sesuai kemampuanmu yang sebenarnya -->
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-3 reveal" style="--d:0s">
+            <div class="bin cut">
+              <div class="bin-head"><h3>Mobile</h3><span>aktif</span></div>
+              <ul>
+                <li>Flutter<span class="segs" data-lv="3"></span></li>
+                <li>Dart<span class="segs" data-lv="3"></span></li>
+                <li>Desain layar aplikasi<span class="segs" data-lv="3"></span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 reveal" style="--d:.1s">
+            <div class="bin cut" style="--d:.1s">
+              <div class="bin-head"><h3>Backend</h3><span>aktif</span></div>
+              <ul>
+                <li>Firebase Auth<span class="segs" data-lv="3"></span></li>
+                <li>Database Firebase<span class="segs" data-lv="3"></span></li>
+                <li>Alur data pesanan<span class="segs" data-lv="2"></span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 reveal" style="--d:.2s">
+            <div class="bin cut" style="--d:.2s">
+              <div class="bin-head"><h3>Web</h3><span>aktif</span></div>
+              <ul>
+                <li>HTML<span class="segs" data-lv="4"></span></li>
+                <li>CSS<span class="segs" data-lv="3"></span></li>
+                <li>Bootstrap<span class="segs" data-lv="3"></span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 reveal" style="--d:.3s">
+            <div class="bin cut" style="--d:.3s">
+              <div class="bin-head"><h3>Cara kerja</h3><span>aktif</span></div>
+              <ul>
+                <li>Teliti pada detail<span class="segs" data-lv="4"></span></li>
+                <li>Disiplin waktu<span class="segs" data-lv="4"></span></li>
+                <li>Cepat belajar<span class="segs" data-lv="4"></span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PROYEK ================= -->
+    <section class="section pt-0" id="proyek">
+      <div class="container">
+        <h2 class="section-title reveal scramble">Proyek</h2>
+
+        <div class="row g-4">
+          <!-- Proyek: e-commerce -->
+          <div class="col-lg-7 reveal" data-reveal="left">
+            <article class="project project-lg cut" data-tilt="5">
+              <div class="project-path">~/proyek/<b>ecommerce-flutter</b></div>
+              <div class="project-inner">
+                <div class="project-visual">
+                  <div class="phone" aria-hidden="true">
+                    <div class="phone-screen">
+                      <div class="shop-bar"><span class="shop-search"></span><span class="cart"><b></b></span></div>
+                      <div class="shop-grid"><i></i><i></i><i></i><i></i></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="project-body">
+                  <span class="chip"><span class="dot"></span>Proyek Kampus</span>
+                  <h3>Aplikasi e-commerce Flutter</h3>
+                  <p>Aplikasi belanja dengan backend Firebase. Pengguna bisa mendaftar, masuk, melihat produk, lalu membuat pesanan.</p>
+                  <ul class="feature-list">
+                    <li>Login dan registrasi dengan Firebase Auth</li>
+                    <li>Katalog produk dari database</li>
+                    <li>Pemesanan (order)</li>
+                  </ul>
+                  <div class="d-flex flex-wrap gap-2 mb-3">
+                    <span class="tag">Flutter</span><span class="tag">Dart</span><span class="tag">Firebase</span>
+                  </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Proyek: task manager -->
+          <div class="col-lg-5 reveal" data-reveal="right" style="--d:.12s">
+            <article class="project cut" data-tilt="5">
+              <div class="project-path">~/proyek/<b>task-manager</b></div>
+              <div class="project-inner">
+                <div class="project-visual crop pink">
+                  <div class="phone pink" aria-hidden="true" style="margin-bottom:-70px">
+                    <div class="phone-screen">
+                      <div class="task-head"><span></span></div>
+                      <div class="task-row"><span class="box"></span><i style="width:80%"></i></div>
+                      <div class="task-row"><span class="box"></span><i style="width:62%"></i></div>
+                      <div class="task-row"><span class="box"></span><i style="width:74%"></i></div>
+                      <div class="task-row"><span class="box"></span><i style="width:55%"></i></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="project-body">
+                  <span class="chip plain">proyek kampus</span>
+                  <h3>Aplikasi task manager</h3>
+                  <p>Aplikasi mobile untuk mencatat tugas harian dan menandainya saat selesai. Dibuat dari pembelajaran mobile programming.</p>
+                  <div class="d-flex flex-wrap gap-2 mb-3">
+                    <span class="tag">Mobile</span><span class="tag">CRUD</span>
+                  </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Proyek: halaman ini -->
+          <!-- Proyek: absensi QRIS mahasiswa -->
+<div class="col-12 reveal" style="--d:.1s">
+  <article class="project project-lg cut" data-tilt="3">
+    <div class="project-path">~/proyek/<b>absensi-qris-mahasiswa</b></div>
+    <div class="project-inner">
+      <div class="project-visual">
+        <div class="phone violet" aria-hidden="true">
+          <div class="phone-screen">
+            <div class="qr-head"><span></span></div>
+            <div class="qr-box">
+              <div class="qr"><i></i><i></i><i></i></div>
+              <div class="qr-scan"></div>
+            </div>
+            <div class="qr-status"><b></b><span></span></div>
+          </div>
+        </div>
+      </div>
+      <div class="project-body">
+        <!-- ganti status: "sedang dikerjakan", "proyek kampus", dll -->
+        <span class="chip plain">proyek mobile</span>
+        <h3>Aplikasi absensi QRIS mahasiswa</h3>
+        <p>Aplikasi Flutter untuk mencatat kehadiran mahasiswa melalui scan QRIS.</p>
+        <ul class="feature-list">
+          <li>Absensi mahasiswa lewat scan QRIS</li>
+          <li>Dibangun dengan Flutter</li>
+          <!-- tambah poin lain sesuai fitur aslinya, misalnya rekap kehadiran -->
+        </ul>
+        <div class="d-flex flex-wrap gap-2">
+          <!-- tambah tag lain kalau ada, misalnya Firebase -->
+          <span class="tag">Flutter</span><span class="tag">Dart</span>
+        </div>
+      </div>
+    </div>
+  </article>
+</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= KONTAK ================= -->
+    <section class="contact" id="kontak">
+      <div class="container">
+        <div class="row align-items-center gy-5">
+          <div class="col-lg-6 reveal">
+            <h2 class="contact-title scramble">Membangun Karier sebagai Mobile Developer.</h2>
+            <p>Terbuka untuk kesempatan magang, freelance, part-time, maupun posisi entry level di bidang teknologi dan pengembangan aplikasi.</p>
+          </div>
+          <div class="col-lg-6 reveal" data-reveal="right" style="--d:.15s">
+            <!-- GANTI email, GitHub, dan LinkedIn di bawah -->
+            <div class="term cut">
+              <div class="term-bar"><i></i><i></i><i></i><span>kontak@nama-kamu:~</span></div>
+              <div class="term-body">
+                <p><span class="prompt">$</span>hubungi --peluang</p>
+                <p class="out">saluran yang tersedia:</p>
+                <a class="cmd" href="https://wa.me/6289502679187"><span class="prompt">&gt;</span>WhatsApp<em>089502679187</em></a>
+                <button type="button" class="cmd" id="copyEmail" data-email="balyaabdulmulukatthoriqi@gmail.com"><span class="prompt">&gt;</span>salin-email<em>balyaabdulmulukatthoriqi@gmail.com</em></button>
+                <a class="cmd" href="https://instagram.com/kiii30_" target="_blank" rel="noopener"><span class="prompt">&gt;</span>Instagram</a>
+                <a class="cmd" href="https://linkedin.com/in/balya-abdul-muluk-atthoriqi-247513434" target="_blank" rel="noopener"><span class="prompt">&gt;</span>linkedin</a>
+                <p class="mt-2"><span class="prompt">$</span><span class="caret" aria-hidden="true"></span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container d-flex flex-wrap justify-content-between gap-2">
+      <p>© 2026 Balya Abdul Muluk Atthoriqi // dibuat dengan HTML, CSS, dan Bootstrap</p>
+      <p>status: online</p>
+    </div>
+  </footer>
+
+  <button type="button" class="to-top" id="toTop" aria-label="Kembali ke atas">↑</button>
+
+  <!-- Toast Bootstrap: konfirmasi salin email -->
+  <div class="toast-container position-fixed bottom-0 start-50 translate-middle-x p-3">
+    <div id="copyToast" class="toast cyber" role="status" aria-live="polite" aria-atomic="true" data-bs-delay="2600">
+      <div class="toast-body" id="copyToastText">email tersalin.</div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- JavaScript kita sendiri: utils.js harus paling pertama -->
+   <script src="utils.js"></script>
+   <script src="boot.js"></script>
+   <script src="navbar.js"></script>
+   <script src="hero.js"></script>
+   <script src="skills.js"></script>
+   <script src="ticker.js"></script>
+   <script src="reveal.js"></script>
+   <script src="tilt.js"></script>
+   <script src="contact.js"></script>
+</body>
+</html>

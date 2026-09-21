@@ -1,0 +1,22 @@
+/* =========================================================
+   TENTANG
+   ========================================================= */
+.quest { --c: 18px; padding: 1.8rem; }
+.quest p { font-size: 1.14rem; }
+.quest p:last-child { margin-bottom: 0; }
+
+.stat { height: 100%; padding: 1.4rem 1.2rem 1.3rem; text-align: center; }
+.gauge { position: relative; width: 132px; height: 132px; margin: 0 auto .9rem; }
+.gauge svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+.gauge circle { fill: none; stroke-width: 7; }
+.g-track { stroke: #0F1D3A; }
+.g-fill { stroke-dasharray: 100; stroke-dashoffset: var(--o, 30); }
+.js .reveal:not(.in) .g-fill { stroke-dashoffset: 100; }
+.js .reveal.in .g-fill { transition: stroke-dashoffset 1.7s cubic-bezier(.2, .8, .2, 1) .4s; }
+.g-cyan .g-fill { stroke: var(--cyan); filter: drop-shadow(0 0 6px var(--cyan)); }
+.g-magenta .g-fill { stroke: var(--magenta); filter: drop-shadow(0 0 6px var(--magenta)); }
+.g-yellow .g-fill { stroke: var(--yellow); filter: drop-shadow(0 0 6px var(--yellow)); }
+.g-center { position: absolute; inset: 0; display: grid; place-content: center; text-align: center; line-height: 1; }
+.g-center b { font-family: var(--display); font-size: 2.3rem; font-weight: 800; }
+.g-center small { margin-top: .25rem; font-family: var(--mono); font-size: .7rem; color: var(--muted); }
+.stat p { margin: 0 auto; color: var(--muted); font-size: .95rem; line-height: 1.4; }

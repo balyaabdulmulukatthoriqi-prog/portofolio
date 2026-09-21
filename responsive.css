@@ -1,0 +1,27 @@
+/* =========================================================
+   RESPONSIF & GERAK MINIMAL
+   ========================================================= */
+@media (max-width: 1199.98px) { .scroll-read { display: none; } }
+@media (max-width: 991.98px) {
+  .hero { padding: 8rem 0 6.5rem; }
+  .sys { margin: .8rem 0 0; }
+  .br { display: none; }
+}
+@media (max-width: 575.98px) {
+  .section { padding: 4.8rem 0; }
+  .hud-wrap { width: 190px; height: 190px; }
+  .hex { transform: scale(.88); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --bd: 0s; }
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-delay: 0s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .js .reveal { opacity: 1; }
+  #rain, .caret, .glitch::before, .glitch::after { display: none; }
+}
