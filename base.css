@@ -19,11 +19,12 @@
 
   --display: 'Oxanium', 'Chakra Petch', system-ui, sans-serif;
   --mono: ui-monospace, 'Cascadia Mono', 'SF Mono', Consolas, 'Liberation Mono', monospace;
-  --bd: 1.7s; /* jeda animasi hero sampai boot selesai */
-
+  --bd: 1.7s;
   --bs-body-font-family: 'Chakra Petch', system-ui, -apple-system, 'Segoe UI', sans-serif;
   color-scheme: dark;
 }
+
+*, *::before, *::after { box-sizing: border-box; }
 
 html {
   background: var(--bg);
@@ -37,10 +38,14 @@ html {
 ::-webkit-scrollbar-thumb:hover { background: var(--cyan); }
 
 body {
+  min-width: 320px;
   background: transparent;
   color: var(--text);
+  font-family: var(--bs-body-font-family);
   line-height: 1.65;
   overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 body::before {
   content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
@@ -54,6 +59,9 @@ body::after {
   background: repeating-linear-gradient(0deg, rgba(0, 0, 0, .13) 0 1px, transparent 1px 3px);
 }
 
+img, svg, canvas { max-width: 100%; }
+button, a { -webkit-tap-highlight-color: transparent; }
+a { color: inherit; }
 h1, h2, h3, h4 { font-family: var(--display); font-weight: 700; line-height: 1.08; letter-spacing: -.005em; }
 p { max-width: 62ch; }
 ::selection { background: var(--cyan); color: #04060D; }
